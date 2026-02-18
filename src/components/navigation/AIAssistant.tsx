@@ -20,7 +20,8 @@ export default function AIAssistant() {
         currentLocation,
         path,
         isNavigating,
-        applyAlternatePath
+        applyAlternatePath,
+        checkReroute
     } = useNavigationStore();
 
     const [aiResult, setAiResult] = useState<{ prediction: PredictionResult; reroute: RerouteResult } | null>(null);
@@ -29,17 +30,32 @@ export default function AIAssistant() {
 
     const handlePredict = async () => {
         if (!currentLocation) return;
+
         setLoading(true);
         setIsThinking(true);
 
-        const result = await predictNextStep(currentLocation, 'patient', {
-            appointmentType: 'Radiology', // Optimized: in a real app this comes from profile/context
+        const prediction = await predictNextStep(currentLocation, 'patient', {
+            appointmentType: 'Radiology',
             doctorType: 'Cardiologist'
         });
 
-        setAiResult(result);
+        if (!prediction) {
+            setLoading(false);
+            setIsThinking(false);
+            return;
+        }
+
+        const reroute = await checkReroute(currentLocation, prediction.nextNode, 'patient');
+
+        if (!reroute) {
+            setLoading(false);
+            setIsThinking(false);
+            return;
+        }
+
+        setAiResult({ prediction, reroute });
         setLoading(false);
-        setTimeout(() => setIsThinking(false), 500);
+        setIsThinking(false);
     };
 
     const steps = path?.steps || [];
