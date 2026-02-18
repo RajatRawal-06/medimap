@@ -12,22 +12,25 @@ export default function Hospital3D({ onNodeClick, visibleFloor = -1 }: Hospital3
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
     const filteredNodes = useMemo(() => {
-        return nodes.filter(node => visibleFloor === -1 || node.floorId === visibleFloor);
+        return nodes.filter(node => visibleFloor === -1 || node.floor === visibleFloor);
     }, [nodes, visibleFloor]);
 
     return (
         <group>
             {filteredNodes.map((node) => {
                 const isHovered = hoveredNode === node.id;
-                const isRoom = node.type === 'room' || node.type === 'emergency';
-                const y = (node.floorId - 1) * 20;
+                const isRoom =
+                    (node.type as string) === 'room' ||
+                    (node.type as string) === 'emergency';
+
+                const y = (node.floor - 1) * 20;
 
                 // Color mapping based on type
                 const getColor = () => {
-                    if (node.type === 'emergency') return '#f43f5e';
-                    if (node.type === 'room') return '#6366f1';
-                    if (node.type === 'elevator') return '#8b5cf6';
-                    if (node.type === 'stairs') return '#ec4899';
+                    if ((node.type as string) === 'emergency') return '#f43f5e';
+                    if ((node.type as string) === 'room') return '#6366f1';
+                    if ((node.type as string) === 'elevator') return '#8b5cf6';
+                    if ((node.type as string) === 'stairs') return '#ec4899';
                     return '#f1f5f9'; // corridor/path
                 };
 
@@ -87,7 +90,7 @@ export default function Hospital3D({ onNodeClick, visibleFloor = -1 }: Hospital3
             })}
 
             {/* Ground Planes for each floor */}
-            {Array.from(new Set(nodes.map(n => n.floorId))).map(floor => (
+            {Array.from(new Set(nodes.map(n => n.floor))).map(floor => (
                 <mesh
                     key={`ground-${floor}`}
                     position={[0, (floor - 1) * 20 - 0.5, 0]}
