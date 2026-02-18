@@ -1,0 +1,165 @@
+﻿
+> medimap@0.0.0 lint
+> eslint .
+
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\3d\Hospital3D.tsx
+   4:15  error  'Node' is defined but never used          @typescript-eslint/no-unused-vars
+  71:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\admin\FacilityControls.tsx
+   5:5   error    'UserPlus' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+   8:5   error    'Power' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+  18:40  error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+  23:8   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\admin\QueueLoadHeatmap.tsx
+  23:11  error  'getLoadOpacity' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\navigation\AIAssistant.tsx
+   11:5   error  'CheckCircle2' is defined but never used                                                                                                                    @typescript-eslint/no-unused-vars
+   12:5   error  'Circle' is defined but never used                                                                                                                          @typescript-eslint/no-unused-vars
+   13:5   error  'ArrowRight' is defined but never used                                                                                                                      @typescript-eslint/no-unused-vars
+   27:9   error  'alternatePath' is assigned a value but never used                                                                                                          @typescript-eslint/no-unused-vars
+   29:13  error  'user' is assigned a value but never used                                                                                                                   @typescript-eslint/no-unused-vars
+   31:46  error  Unexpected any. Specify a different type                                                                                                                    @typescript-eslint/no-explicit-any
+  162:72  error  React Hook "useAlternatePath" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\hooks\useGeolocation.ts
+  21:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\hooks\useGeolocation.ts:21:13
+  19 |     useEffect(() => {
+  20 |         if (!navigator.geolocation) {
+> 21 |             setState(s => ({ ...s, error: 'Geolocation is not supported', loading: false }));
+     |             ^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |             return;
+  23 |         }
+  24 |  react-hooks/set-state-in-effect
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\hooks\useTranslation.ts
+   9:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\lib\analytics.ts
+  33:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\DoctorDetail.tsx
+    6:5   error    'Clock' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+    9:5   error    'ChevronLeft' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+   58:8   warning  React Hook useMemo has an unnecessary dependency: 'selectedDate'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+   79:27  error    Unexpected any. Specify a different type                                                                            @typescript-eslint/no-explicit-any
+  114:23  error    Unexpected any. Specify a different type                                                                            @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx
+  37:25  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx:37:25
+  35 |                 className="absolute w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl"
+  36 |                 animate={{
+> 37 |                     x: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  38 |                     y: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+  39 |                 }}
+  40 |                 transition={{                             react-hooks/purity
+  37:52  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx:37:52
+  35 |                 className="absolute w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl"
+  36 |                 animate={{
+> 37 |                     x: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+     |                                                    ^^^^^^^^^^^^^ Cannot call impure function
+  38 |                     y: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+  39 |                 }}
+  40 |                 transition={{  react-hooks/purity
+  38:25  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx:38:25
+  36 |                 animate={{
+  37 |                     x: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+> 38 |                     y: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  39 |                 }}
+  40 |                 transition={{
+  41 |                     duration: 20 + Math.random() * 10,                                                           react-hooks/purity
+  38:52  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx:38:52
+  36 |                 animate={{
+  37 |                     x: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+> 38 |                     y: [Math.random() * 100 + '%', Math.random() * 100 + '%'],
+     |                                                    ^^^^^^^^^^^^^ Cannot call impure function
+  39 |                 }}
+  40 |                 transition={{
+  41 |                     duration: 20 + Math.random() * 10,                                react-hooks/purity
+  41:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx:41:36
+  39 |                 }}
+  40 |                 transition={{
+> 41 |                     duration: 20 + Math.random() * 10,
+     |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  42 |                     repeat: Infinity,
+  43 |                     ease: "linear"
+  44 |                 }}                                                                                                                                             react-hooks/purity
+  46:27  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx:46:27
+  44 |                 }}
+  45 |                 style={{
+> 46 |                     left: Math.random() * 100 + '%',
+     |                           ^^^^^^^^^^^^^ Cannot call impure function
+  47 |                     top: Math.random() * 100 + '%',
+  48 |                 }}
+  49 |             />                                                                                                                                                                   react-hooks/purity
+  47:26  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\Home.tsx:47:26
+  45 |                 style={{
+  46 |                     left: Math.random() * 100 + '%',
+> 47 |                     top: Math.random() * 100 + '%',
+     |                          ^^^^^^^^^^^^^ Cannot call impure function
+  48 |                 }}
+  49 |             />
+  50 |         ))}                                                                                                                                                                           react-hooks/purity
+  68:82  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\HospitalNavigation.tsx
+  28:9  error  'currentLocation' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\store\useAuthStore.ts
+  29:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\store\useNavigationStore.ts
+   84:34   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  142:89   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  355:33   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  398:48   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  437:55   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  437:87   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  441:80   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  441:110  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 42 problems (40 errors, 2 warnings)
+

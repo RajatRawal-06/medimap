@@ -1,0 +1,26 @@
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\3d\Hospital3D.tsx
+  15:11  warning  The 'floors' array makes the dependencies of useMemo Hook (at line 33) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'floors' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+??? 1 problem (0 errors, 1 warning)
+
+node.exe : ESLint found 
+too many warnings 
+(maximum: 0).
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (E  
+  SLint found to...s (m   
+ aximum: 0).:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 

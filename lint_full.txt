@@ -1,0 +1,49 @@
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\3d\Hospital3D.tsx
+  70:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\admin\FacilityControls.tsx
+  17:40  error    Unexpected any. Specify a different type                                                                      @typescript-eslint/no-explicit-any
+  22:8   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\navigation\AIAssistant.tsx
+  25:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\hooks\useGeolocation.ts
+  21:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\hooks\useGeolocation.ts:21:13
+  19 |     useEffect(() => {
+  20 |         if (!navigator.geolocation) {
+> 21 |             setState(s => ({ ...s, error: 'Geolocation is not supported', loading: false }));
+     |             ^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |             return;
+  23 |         }
+  24 |  react-hooks/set-state-in-effect
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\hooks\useTranslation.ts
+  10:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\lib\analytics.ts
+  33:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\DoctorDetail.tsx
+   86:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  121:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\store\useAuthStore.ts
+  29:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\store\useNavigationStore.ts
+   84:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  142:89  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 13 problems (12 errors, 1 warning)
+

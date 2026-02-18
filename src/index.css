@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #0f172a;
+    /* Slate 900 */
+    --secondary: #4f46e5;
+    /* Indigo 600 */
+    --accent: #0ea5e9;
+    /* Sky 500 */
+    --background: #f8fafc;
+    /* Slate 50 */
+    --foreground: #0f172a;
+}
+
+.dark {
+    --primary: #f8fafc;
+    --secondary: #6366f1;
+    /* Indigo 500 */
+    --background: #020617;
+    /* Slate 950 */
+    --foreground: #f1f5f9;
+    /* Slate 100 */
+}
+
+/* Accessibility Modes */
+.high-contrast {
+    --primary: #000000;
+    --secondary: #0000ff;
+    --background: #ffffff;
+    --foreground: #000000;
+}
+
+.high-contrast * {
+    border-color: #000 !important;
+}
+
+.large-text {
+    font-size: 1.25rem !important;
+}
+
+.large-text p,
+.large-text span {
+    font-size: 1.15rem !important;
+}
+
+.large-text h1 {
+    font-size: 5rem !important;
+}
+
+/* Simplified Mode */
+.simplified-mode .text-xs,
+.simplified-mode .text-sm,
+.simplified-mode p,
+.simplified-mode span:not(.icon-label) {
+    display: none !important;
+}
+
+.simplified-mode .icon-only {
+    display: flex !important;
+    scale: 1.5;
+}
+
+.simplified-mode h1,
+.simplified-mode h2 {
+    font-size: 1.5rem !important;
+    text-align: center;
+}
+
+.reduced-motion * {
+    animation: none !important;
+    transition: none !important;
+}
+
+@layer base {
+    body {
+        @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-500;
+        @apply dark:bg-slate-950 dark:text-slate-100;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+}
+
+@layer components {
+    .dashboard-card {
+        @apply bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
+        @apply dark:bg-slate-900 dark:border-slate-800 dark:shadow-indigo-500/5;
+    }
+
+    .btn-primary {
+        @apply bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-500/20 hover:bg-indigo-700 transition-all active:scale-[0.98];
+        @apply dark:bg-indigo-500 dark:hover:bg-indigo-600;
+    }
+
+    .btn-outline {
+        @apply border border-slate-200 bg-white text-slate-700 px-5 py-2.5 rounded-xl font-semibold hover:bg-slate-50 transition-all active:scale-[0.98];
+        @apply dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800;
+    }
+
+    .glass-panel {
+        @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-xl;
+        @apply dark:bg-slate-900/80 dark:border-slate-800/20;
+    }
+}
+
+/* Custom Scrollbar for Dashboard feel */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}

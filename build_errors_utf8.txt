@@ -1,0 +1,8 @@
+﻿src/components/layout/MainLayout.tsx(45,13): error TS2339: Property 'isTTSActive' does not exist on type 'NavigationState'.
+src/components/layout/Navbar.tsx(21,9): error TS2339: Property 'isTTSActive' does not exist on type 'NavigationState'.
+src/components/map/HospitalFloorMap.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/map/HospitalFloorMap.tsx(2,18): error TS6133: 'AnimatePresence' is declared but its value is never read.
+src/components/map/HospitalFloorMap.tsx(3,43): error TS1484: 'MapNode' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/map/HospitalFloorMap.tsx(4,1): error TS6192: All imports in import declaration are unused.
+src/components/map/HospitalFloorMap.tsx(24,83): error TS6133: 'currentPath' is declared but its value is never read.
+src/store/useNavigationStore.ts(214,25): error TS6133: 'hospitalId' is declared but its value is never read.

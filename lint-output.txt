@@ -1,0 +1,6 @@
+﻿
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\3d\Hospital3D.tsx
+  33:8  warning  React Hook useMemo has a missing dependency: 'floors'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Γ£û 1 problem (0 errors, 1 warning)
+

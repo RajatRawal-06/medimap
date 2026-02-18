@@ -1,0 +1,47 @@
+﻿
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\hospital\HospitalReviews.tsx
+   20:26  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react-hooks/rules-of-hooks
+  116:82  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\components\hospital\HospitalReviews.tsx:116:82
+  114 |                                         </h4>
+  115 |                                         <div className="flex items-center gap-3 text-xs text-slate-500 mt-1 font-medium">
+> 116 |                                             <span>{new Date(review.created_at || Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+      |                                                                                  ^^^^^^^^^^ Cannot call impure function
+  117 |                                             <span className="w-1 h-1 bg-slate-700 rounded-full" />
+  118 |                                             <span>Outpatient Visit</span>
+  119 |                                         </div>  react-hooks/purity
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\hooks\useGeolocation.ts
+  52:8  warning  React Hook useEffect has a missing dependency: 'isSupported'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\HospitalNavigation.tsx
+  58:23  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\pages\HospitalNavigation.tsx:58:23
+  56 |         if (id) {
+  57 |             const hosp = getMockHospitalBySlug(id);
+> 58 |             if (hosp) setHospitalName(hosp.name);
+     |                       ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  59 |         }
+  60 |     }, [id]);
+  61 |  react-hooks/set-state-in-effect
+
+C:\Users\rawal\OneDrive\Desktop\weignite\medimap\src\store\useNavigationStore.ts
+  121:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  157:76  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  157:92  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  158:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  160:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  161:92  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 10 problems (9 errors, 1 warning)
+
